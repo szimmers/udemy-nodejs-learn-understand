@@ -7,3 +7,4 @@ greet();
 	// greet
 });
  */
+// ... then soon thereafter, invokes it with apply()
