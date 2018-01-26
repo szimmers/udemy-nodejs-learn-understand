@@ -21,6 +21,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
+    "jasmine-node": "^1.14.5",
     "rimraf": "^2.6.2"
   },
   "dependencies": {
