@@ -1,11 +1,13 @@
 <html>
     <head>
         <link href="assets/style.css" type="text/css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     </head>
     <body>
         <h1>
             hi
         </h1>
+
         <form method="post" action="/person">
             first name:
             <input type="text" id="firstname" name="firstname" /><br/>
@@ -13,5 +15,15 @@
             <input type="text" id="lastname" name="lastname" /><br/>
             <input type="submit" value="Submit"/>
         </form>
+
+        <script>
+            $.ajax({
+                type: "POST",
+                url: "/personjson",
+                data: JSON.stringify({firstname: 'Larry', lastname: 'McDoug'}),
+                dataType: "JSON",
+                contentType: "application/json"
+            });
+        </script>
     </body>
 </html>

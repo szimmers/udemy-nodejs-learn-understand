@@ -6,6 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const urlencodedParser = bodyParser.urlencoded({extended: false});
+const jsonParser = bodyParser.json();
 
 // route all asset requests to public folder
 const publicpath = __dirname + '/public';
@@ -29,8 +30,13 @@ app.get('/person/:id', function(req, res) {
 	res.render('person', {ID: req.params.id, foo: req.query.foo});
 });
 
-app.post('/person/', urlencodedParser, function(req, res) {
+app.post('/person', urlencodedParser, function(req, res) {
 	res.send('danke');
+	console.log(req.body);
+});
+
+app.post('/personjson', jsonParser, function(req, res) {
+	res.send('danke json');
 	console.log(req.body);
 });
 
