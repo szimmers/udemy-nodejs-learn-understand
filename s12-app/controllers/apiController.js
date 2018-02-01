@@ -11,7 +11,6 @@ module.exports = function(app) {
 				throw err;
 			}
 
-			console.log(todos);
 			res.send(todos);
 		});
 	});
@@ -22,7 +21,6 @@ module.exports = function(app) {
 				throw err;
 			}
 
-			console.log(todo);
 			res.send(todo);
 		});
 	});
@@ -36,23 +34,22 @@ module.exports = function(app) {
 				hasAttachment: req.body.hasAttachment
 			};
 
-			Todos.findByIdAndUpdate(req.params.id, updateTodo, function(err, todo) {
+			Todos.findByIdAndUpdate(req.body.id, updateTodo, function(err, todo) {
 				if (err) {
 					throw err;
 				}
 
-				console.log(todo);
 				res.send('Success');
 			});
 		}
 		// no, new
 		else {
-			let newTodo = {
+			let newTodo = Todos({
 				username: 'tim',
 				todo: req.body.todo,
 				isDone: req.body.isDone,
 				hasAttachment: req.body.hasAttachment
-			};
+			});
 
 			newTodo.save(function(err) {
 				if (err) {
